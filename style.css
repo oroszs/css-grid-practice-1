@@ -1,0 +1,77 @@
+:root {
+    --light-green: rgba(151, 255, 156, 0.723);
+    --light-blue: rgba(122, 246, 255, 0.788);
+    --light-red: rgba(255, 104, 104, 0.704);
+    --light-yellow: rgba(253, 255, 126, 0.812);
+
+    --head-foot-size: 50px;
+}
+#wrapper {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+.icon {
+    flex: none;
+}
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid black;
+}
+span {
+    flex: none;
+}
+#test-grid {
+    padding: 20px;
+    flex: none;
+    width: 90%;
+    height: 90%;
+    background-color: rgb(203, 203, 203);
+    border: 5px solid black;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: [sidebar] 200px [sidebar-end] repeat(3, 1fr [main-column]) [main-column-end];
+    gap: 10px;
+    grid-template-rows: [header] var(--head-foot-size) [header-end] repeat(3, 1fr [main-row]) [footer-start] var(--head-foot-size) [footer-end];
+}
+#sidebar {
+    grid-column: sidebar / 1;
+    grid-row: header / span footer-end;
+    background-color: var(--light-blue);
+}
+#header {
+    grid-column: sidebar-end / span main-column-end;
+    grid-row: header / span header-end;
+    background-color: var(--light-red);
+}
+#footer {
+    grid-column: sidebar-end / span main-column-end;
+    grid-row: footer-start / span footer-end;
+    background-color: var(--light-green);
+}
+#item-1 {
+    grid-column: sidebar-end / 3;
+    grid-row: header-end / 3;
+    background-color: var(--light-yellow);
+}
+#item-2 {
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    background-color: var(--light-yellow);
+}
+#item-3 {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+    background-color: var(--light-yellow);
+}
